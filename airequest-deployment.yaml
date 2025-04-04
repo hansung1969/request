@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: airequest-deployment
+  labels:
+    app: airequest-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: airequest-app
+  template:
+    metadata:
+      labels:
+        app: airequest-app
+    spec:
+      containers:
+      - name: airequest
+        image: 796973511319.dkr.ecr.ap-northeast-2.amazonaws.com/hkit/kit4:latest
+        ports:
+        - containerPort: 9092
